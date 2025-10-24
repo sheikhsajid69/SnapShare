@@ -80,10 +80,18 @@ export default {
             height: "0",
           },
         },
+        "pulse-like": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.2)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-like": "pulse-like 0.3s ease-in-out",
+      },
+      backgroundImage: {
+        "gradient-instagram": "linear-gradient(45deg, hsl(var(--gradient-start)), hsl(var(--gradient-mid)), hsl(var(--gradient-end)))",
       },
     },
   },

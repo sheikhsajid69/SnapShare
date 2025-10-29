@@ -156,7 +156,15 @@ const Profile = () => {
             <div className="flex-1 space-y-3">
               <div className="flex items-center space-x-4">
                 <h1 className="text-xl font-semibold">{profile.username}</h1>
-                {!isOwnProfile && (
+                {isOwnProfile ? (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => navigate("/edit-profile")}
+                  >
+                    Edit Profile
+                  </Button>
+                ) : (
                   <Button
                     variant={isFollowing ? "outline" : "default"}
                     size="sm"

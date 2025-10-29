@@ -8,8 +8,10 @@ import Auth from "./pages/Auth";
 import Feed from "./pages/Feed";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
+import Sidebar from "./components/Sidebar";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +26,14 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     return <Navigate to="/auth" replace />;
   }
   
-  return <>{children}</>;
+  return (
+    <div className="flex min-h-screen">
+      <Sidebar />
+      <div className="flex-1 md:ml-64">
+        {children}
+      </div>
+    </div>
+  );
 };
 
 const App = () => (
@@ -57,6 +66,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/edit-profile"
+              element={
+                <ProtectedRoute>
+                  <EditProfile />
                 </ProtectedRoute>
               }
             />

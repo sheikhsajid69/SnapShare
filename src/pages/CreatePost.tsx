@@ -18,16 +18,49 @@ const CreatePost = () => {
   const [preview, setPreview] = useState<string>("");
   const [caption, setCaption] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const processFile = (file: File) => {
+    setImage(file);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setImage(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+      processFile(file);
+    }
+  };
+
+  const handleDragEnter = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files?.[0];
+    if (file && file.type.startsWith("image/")) {
+      processFile(file);
     }
   };
 
@@ -98,7 +131,15 @@ const CreatePost = () => {
           <div>
             <label
               htmlFor="image-upload"
-              className="block aspect-square bg-muted rounded-lg cursor-pointer hover:bg-muted/80 transition-colors"
+              onDragEnter={handleDragEnter}
+              onDragLeave={handleDragLeave}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              className={`block aspect-square rounded-lg cursor-pointer transition-colors ${
+                isDragging
+                  ? "bg-primary/10 border-2 border-dashed border-primary"
+                  : "bg-muted hover:bg-muted/80"
+              }`}
             >
               {preview ? (
                 <img
@@ -109,7 +150,8 @@ const CreatePost = () => {
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground">
                   <Upload className="w-12 h-12 mb-2" />
-                  <p className="text-sm">Click to upload photo</p>
+                  <p className="text-sm font-medium">Click to upload photo</p>
+                  <p className="text-xs mt-1">or drag and drop</p>
                 </div>
               )}
             </label>

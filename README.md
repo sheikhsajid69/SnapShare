@@ -1,73 +1,97 @@
-# Welcome to your Lovable project
+# SnapShare 📸
 
-## Project info
+![Project Status](https://img.shields.io/badge/status-active-success.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-**URL**: https://lovable.dev/projects/383b2519-6eb7-4cb3-8f29-2ffcc9f692ad
+**SnapShare** is a modern, responsive web application designed for seamless image sharing and management. Built with performance and user experience in mind, it leverages the power of React, Vite, and Supabase to provide a fast and secure platform for your visual content.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📖 Table of Contents
+- [About The Project](#-about-the-project)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/383b2519-6eb7-4cb3-8f29-2ffcc9f692ad) and start prompting.
+## 🚀 About The Project
 
-Changes made via Lovable will be committed automatically to this repo.
+SnapShare aims to simplify the way users upload, view, and share images. Whether you are building a personal portfolio, a social feed, or a private gallery, SnapShare provides the robust foundation needed for handling media assets efficiently.
 
-**Use your preferred IDE**
+The project utilizes **Lovable** for rapid UI iteration and **Supabase** for a scalable backend-as-a-service (BaaS) solution.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Features
 
-Follow these steps:
+* **⚡ Blazing Fast Performance:** Powered by Vite for instant server start and lightning-fast HMR (Hot Module Replacement).
+* **🔒 Secure Authentication:** Integrated Supabase Auth for robust user management.
+* **📂 Cloud Storage:** Efficient image upload and retrieval using Supabase Storage buckets.
+* **🎨 Modern UI/UX:** Beautifully designed components using **shadcn/ui** and **Tailwind CSS**.
+* **📱 Fully Responsive:** Optimized for desktops, tablets, and mobile devices.
+* **🛡️ Type Safety:** Built entirely with TypeScript for better code quality and maintainability.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠 Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+This project is built using the following technologies:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+* **Frontend Framework:** [React](https://reactjs.org/)
+* **Build Tool:** [Vite](https://vitejs.dev/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+* **Backend & Database:** [Supabase](https://supabase.com/) (PostgreSQL, Auth, Storage)
+* **State Management:** [TanStack Query](https://tanstack.com/query/latest) (likely used for data fetching)
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏁 Getting Started
 
-**Use GitHub Codespaces**
+Follow these steps to set up the project locally on your machine.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Prerequisites
 
-## What technologies are used for this project?
+* **Node.js** (v18 or higher recommended)
+* **npm** or **bun** package manager
 
-This project is built with:
+### Installation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/sheikhsajid69/SnapShare.git](https://github.com/sheikhsajid69/SnapShare.git)
+    cd SnapShare
+    ```
 
-## How can I deploy this project?
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    bun install
+    ```
 
-Simply open [Lovable](https://lovable.dev/projects/383b2519-6eb7-4cb3-8f29-2ffcc9f692ad) and click on Share -> Publish.
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
-## Can I connect a custom domain to my Lovable project?
+### Environment Variables
 
-Yes, you can!
+To run this project, you will likely need to configure Supabase credentials. Create a `.env` file in the root directory and add the following keys (you can get these from your Supabase dashboard):
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key

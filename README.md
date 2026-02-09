@@ -1,4 +1,4 @@
-# SnapShare 
+# SnapShare (Clone of Instagram)
 
 ![Project Status](https://img.shields.io/badge/status-active-success.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
